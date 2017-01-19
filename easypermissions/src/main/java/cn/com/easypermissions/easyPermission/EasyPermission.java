@@ -132,32 +132,35 @@ public class EasyPermission {
 
             final String[] deniedPermissionArray = deniedPermissions.toArray(new String[deniedPermissions.size()]);
 
-            if (shouldShowRationale) {
-                Activity activity = Utils.getActivity(object);
-                if (null == activity) {
-                    return;
-                }
+            executePermissionsRequest(object, deniedPermissionArray, requestCode);
 
-                new AlertDialog.Builder(activity).setMessage(rationale)
-                        .setPositiveButton(positiveButton, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                executePermissionsRequest(object, deniedPermissionArray, requestCode);
-                            }
-                        })
-                        .setNegativeButton(negativeButton, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                // act as if the permissions were denied
-                                ((PermissionCallback) object).onEasyPermissionDenied(requestCode,
-                                        deniedPermissionArray);
-                            }
-                        })
-                        .create()
-                        .show();
-            } else {
-                executePermissionsRequest(object, deniedPermissionArray, requestCode);
-            }
+            //下面这段是当点击操作时二次提示框，可以去掉的，直接去申请权限
+//            if (shouldShowRationale) {
+//                Activity activity = Utils.getActivity(object);
+//                if (null == activity) {
+//                    return;
+//                }
+//
+//                new AlertDialog.Builder(activity).setMessage(rationale)
+//                        .setPositiveButton(positiveButton, new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                executePermissionsRequest(object, deniedPermissionArray, requestCode);
+//                            }
+//                        })
+//                        .setNegativeButton(negativeButton, new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                // act as if the permissions were denied
+//                                ((PermissionCallback) object).onEasyPermissionDenied(requestCode,
+//                                        deniedPermissionArray);
+//                            }
+//                        })
+//                        .create()
+//                        .show();
+//            } else {
+//                executePermissionsRequest(object, deniedPermissionArray, requestCode);
+//            }
         }
     }
 
@@ -213,7 +216,7 @@ public class EasyPermission {
                 if (null == activity) {
                     return true;
                 }
-
+                //这是当选择了不在询问后的弹出框，可以自定义，换成自己的
                 new AlertDialog.Builder(activity).setMessage(rationale)
                         .setPositiveButton(positiveButton, new DialogInterface.OnClickListener() {
                             @Override
