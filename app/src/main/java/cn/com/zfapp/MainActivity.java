@@ -68,18 +68,18 @@ public class MainActivity extends BasePermissionActivity implements View.OnClick
                 requestPermission(100, new String[]{Manifest.permission.CAMERA}, "拍照", new PermissionCallBackM() {
                     @Override
                     public void onPermissionGrantedM(int requestCode, String... perms) {
-                        Toast.makeText(MainActivity.this,"获取权限成功",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "获取权限成功", Toast.LENGTH_SHORT).show();
                         camera();
                     }
 
                     @Override
                     public void onPermissionDeniedM(int requestCode, String... perms) {
-                        Toast.makeText(MainActivity.this,"获取权限失败",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "获取权限失败", Toast.LENGTH_SHORT).show();
                     }
                 });
-                    break;
-                }
+                break;
         }
+    }
 
 //    @Override
 //    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
