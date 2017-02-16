@@ -30,8 +30,6 @@ public class NotifiManager {
         return notificationManager;
     }
 
-    public static final int NOTIFICATION_ID = 1;
-
     public static PendingIntent getPendingIntent(Context context) {
         Intent intent = new Intent(Intent.ACTION_VIEW,
                 Uri.parse("http://developer.android.com/reference/android/app/Notification.html"));

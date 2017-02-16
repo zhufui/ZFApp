@@ -18,6 +18,8 @@ import cn.com.zfapp.manager.NotifiManager;
  */
 public class NotificationAct extends AppCompatActivity {
 
+    public static final int NOTIFICATION_ID = 1;
+
     @BindView(R.id.button)
     Button button;
 
@@ -35,6 +37,6 @@ public class NotificationAct extends AppCompatActivity {
 
     @OnClick(R.id.button)
     public void onClick() {
-        NotifiManager.sendNotification(this, NotifiManager.NOTIFICATION_ID);
+        NotifiManager.sendNotification(this, NOTIFICATION_ID);
     }
 }
