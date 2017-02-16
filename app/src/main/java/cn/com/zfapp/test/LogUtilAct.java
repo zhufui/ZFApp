@@ -12,6 +12,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.com.logutils.LogUtils;
 import cn.com.zfapp.R;
+import cn.com.zfapp.manager.InitManager;
 
 /**
  * Created by zf on 17-2-15.
@@ -27,11 +28,7 @@ public class LogUtilAct extends AppCompatActivity {
         setContentView(R.layout.act_logutil);
         ButterKnife.bind(this);
 
-        //设置日志是否输出
-        LogUtils.setConfigAllowLog(true);
-        //设置tag前缀
-        LogUtils.setConfigTagPrefix("ZFApp ");
-        //上面两个配置可以在application中配置
+        InitManager.initLogUtils();
     }
 
     @OnClick(R.id.button)

@@ -33,11 +33,11 @@ public class TestAct extends AppCompatActivity {
         switch (view.getId()) {
             //test logutils
             case R.id.bt_logtutils:
-                LogUtilAct.newIntent(this);
+                startActivity(LogUtilAct.newIntent(this));
                 break;
             //test notification
             case R.id.bt_notification:
-                NotificationAct.newIntent(this);
+                startActivity(NotificationAct.newIntent(this));
                 break;
         }
     }
