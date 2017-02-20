@@ -1,1 +1,1 @@
-include ':app', ':easypermissions', ':logutils'
+include ':app', ':easypermissions', ':logutils', ':materialdesignsamples', ':encryptsample'

@@ -5,7 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/ZFApp.iml" filepath="$PROJECT_DIR$/ZFApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/easypermissions/easypermissions.iml" filepath="$PROJECT_DIR$/easypermissions/easypermissions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/encryptsample/encryptsample.iml" filepath="$PROJECT_DIR$/encryptsample/encryptsample.iml" />
       <module fileurl="file://$PROJECT_DIR$/logutils/logutils.iml" filepath="$PROJECT_DIR$/logutils/logutils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/materialdesignsamples/materialdesignsamples.iml" filepath="$PROJECT_DIR$/materialdesignsamples/materialdesignsamples.iml" />
     </modules>
   </component>
 </project>

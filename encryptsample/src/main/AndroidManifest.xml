@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.encryptsample">
+    <!--
+    加密算法讲解：
+    md5和sha都是不可逆的
+    下面三种是对称加密算法：
+    1）DES（Data Encryption Standard，数据加密标准）
+    特点：密钥偏短（56位）、生命周期短（避免被破解）
+    2）3DES（Triple DES、DESede，进行了三重DES加密的算法）
+    缺点：处理速度较慢、密钥计算时间较长、加密效率不高
+    3）AES（Advanced Encryption Standard，高级数据加密标准，AES算法可以有效抵制针对DES的攻击算法）
+    特点：密钥建立时间短、灵敏性好、内存需求低、安全性高
+    -->
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
