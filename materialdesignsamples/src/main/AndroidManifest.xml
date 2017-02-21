@@ -18,8 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".edit.TextInputSampleActivity" android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".cardview.CardViewSimpleActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".edit.TextInputSampleActivity"      android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".cardview.CardViewSimpleActivity"   android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".recyclerview.RecyclerViewActivity" android:theme="@style/AppTheme.NoActionBar"/>
 
     </application>
 
