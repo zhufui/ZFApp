@@ -8,7 +8,6 @@ import android.widget.Button;
 import com.example.materialdesignsamples.cardview.CardViewSimpleActivity;
 import com.example.materialdesignsamples.edit.TextInputSampleActivity;
 import com.example.materialdesignsamples.recyclerview.RecyclerViewActivity;
-import com.example.materialdesignsamples.recyclerview.SwipeRefreshActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(RecyclerViewActivity.newIntent(this));
                 break;
             case R.id.bt4:
-                startActivity(SwipeRefreshActivity.newIntent(this));
                 break;
         }
     }
