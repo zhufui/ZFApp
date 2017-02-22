@@ -10,8 +10,11 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/baseutils" />
             <option value="$PROJECT_DIR$/easypermissions" />
+            <option value="$PROJECT_DIR$/encryptsample" />
             <option value="$PROJECT_DIR$/logutils" />
+            <option value="$PROJECT_DIR$/materialdesignsamples" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

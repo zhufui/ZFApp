@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/scroll5_bt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="滑动到第５项" />
+
+            <Button
+                android:id="@+id/scrollToBottom_bt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="滑动到底部" />
+
+            <Button
+                android:id="@+id/scrollToTop_bt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="滑动到顶部" />
+        </LinearLayout>
+
+    </ScrollView>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="#ffff0000"
+            android:dividerHeight="10dp" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</LinearLayout>

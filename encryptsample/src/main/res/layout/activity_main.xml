@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/data_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/aesEncrypt_bt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AES加密" />
+
+        <Button
+            android:id="@+id/aesDecrypt_bt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AES解密" />
+
+        <Button
+            android:id="@+id/desEncrypt_bt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DES加密" />
+
+        <Button
+            android:id="@+id/desDecrypt_bt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DES解密" />
+
+        <Button
+            android:id="@+id/tripleDesEncrypt_bt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="3DES加密" />
+
+        <Button
+            android:id="@+id/tripleDesDecrypt_bt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="3DES解密" />
+
+        <Button
+            android:id="@+id/md5Encrypt_bt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MD5加密" />
+
+        <Button
+            android:id="@+id/shaEncrypt_bt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SHA加密" />
+    </LinearLayout>
+</ScrollView>
