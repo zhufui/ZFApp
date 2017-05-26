@@ -236,12 +236,31 @@ public class IntentUtils {
 
     /**
      * 获取打开浏览器的意图
+     *
      * @param data Uri.parse("http://www.baidu.com")
      * @return
      */
     public static Intent getBrowsableIntent(Uri data) {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(data);
+        return intent;
+    }
+
+    public static Intent getPdfFileIntent(String param) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.addCategory("android.intent.category.DEFAULT");
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        Uri uri = Uri.fromFile(new File(param));
+        intent.setDataAndType(uri, "application/pdf");
+        return intent;
+    }
+
+    public static Intent getPdfFileIntent(File file) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.addCategory(Intent.CATEGORY_DEFAULT);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        Uri uri = Uri.fromFile(file);
+        intent.setDataAndType(uri, "application/pdf");
         return intent;
     }
 }

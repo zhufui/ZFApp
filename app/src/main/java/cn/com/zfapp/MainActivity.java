@@ -8,15 +8,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
-import android.widget.Toast;
+
+import com.example.baseutils.IntentUtils;
 
 import cn.com.easypermissions.BasePermissionActivity;
-import cn.com.easypermissions.PermissionCallBackM;
 
 public class MainActivity extends BasePermissionActivity implements View.OnClickListener {
 
     Button bt;
+    WebView webView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,7 @@ public class MainActivity extends BasePermissionActivity implements View.OnClick
 
         bt = (Button) findViewById(R.id.bt);
         bt.setOnClickListener(this);
+        webView = (WebView)findViewById(R.id.webview);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -65,18 +68,20 @@ public class MainActivity extends BasePermissionActivity implements View.OnClick
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt:
-                requestPermission(100, new String[]{Manifest.permission.CAMERA}, "拍照", new PermissionCallBackM() {
-                    @Override
-                    public void onPermissionGrantedM(int requestCode, String... perms) {
-                        Toast.makeText(MainActivity.this, "获取权限成功", Toast.LENGTH_SHORT).show();
-                        camera();
-                    }
-
-                    @Override
-                    public void onPermissionDeniedM(int requestCode, String... perms) {
-                        Toast.makeText(MainActivity.this, "获取权限失败", Toast.LENGTH_SHORT).show();
-                    }
-                });
+//                webView.loadUrl("file:///sdcard/浅谈VC-编程技术与技巧研究.pdf");
+                startActivity(IntentUtils.getPdfFileIntent("/storage/emulated/0/浅谈VC-编程技术与技巧研究.pdf"));
+//                requestPermission(100, new String[]{Manifest.permission.CAMERA}, "拍照", new PermissionCallBackM() {
+//                    @Override
+//                    public void onPermissionGrantedM(int requestCode, String... perms) {
+//                        Toast.makeText(MainActivity.this, "获取权限成功", Toast.LENGTH_SHORT).show();
+//                        camera();
+//                    }
+//
+//                    @Override
+//                    public void onPermissionDeniedM(int requestCode, String... perms) {
+//                        Toast.makeText(MainActivity.this, "获取权限失败", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
                 break;
         }
     }

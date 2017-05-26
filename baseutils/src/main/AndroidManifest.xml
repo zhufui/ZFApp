@@ -3,6 +3,7 @@
 
     <!--这个工具包使用时建议在application中先初始化，调用方法是:Utils.init(context);-->
 
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <application
         android:allowBackup="true"
         android:label="@string/app_name"
