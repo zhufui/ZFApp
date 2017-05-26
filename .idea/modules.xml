@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/encryptsample/encryptsample.iml" filepath="$PROJECT_DIR$/encryptsample/encryptsample.iml" />
       <module fileurl="file://$PROJECT_DIR$/logutils/logutils.iml" filepath="$PROJECT_DIR$/logutils/logutils.iml" />
       <module fileurl="file://$PROJECT_DIR$/materialdesignsamples/materialdesignsamples.iml" filepath="$PROJECT_DIR$/materialdesignsamples/materialdesignsamples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mpermissions/mpermissions.iml" filepath="$PROJECT_DIR$/mpermissions/mpermissions.iml" />
     </modules>
   </component>
 </project>
