@@ -38,13 +38,13 @@ public class MainActivity extends AppCompatActivity implements PermissionCallbac
     }
 
     @Override
-    public void permissionGrant() {
+    public void permissionGrant(int requestCode) {
         callPhone();
     }
 
     @Override
-    public void permissionDenied() {
-        Toast.makeText(this,"请去设置->应用->update->权限,打开权限",Toast.LENGTH_SHORT).show();
+    public void permissionDenied(int requestCode) {
+        Toast.makeText(this, "请去设置->应用->" + getString(R.string.app_name) + "->权限,打开权限", Toast.LENGTH_SHORT).show();
     }
 
     @Override

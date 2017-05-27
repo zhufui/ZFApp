@@ -12,7 +12,7 @@ import android.support.v4.content.ContextCompat;
  */
 public class MPermissions {
     public static void requestPermissions(Activity activity, int requestCode, PermissionCallback pc, String[] permissions) {
-        if (Build.VERSION.SDK_INT < 23) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             return;
         }
 
@@ -25,7 +25,7 @@ public class MPermissions {
         }
 
         if (checkResult) {
-            pc.permissionGrant();
+            pc.permissionGrant(requestCode);
         } else {
             ActivityCompat.requestPermissions(activity, permissions, requestCode);
         }
@@ -54,10 +54,10 @@ public class MPermissions {
         }
 
         if(grantResult){
-            pc.permissionGrant();
+            pc.permissionGrant(requestCode);
             return;
         }
 
-        pc.permissionDenied();
+        pc.permissionDenied(requestCode);
     }
 }
