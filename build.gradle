@@ -21,3 +21,23 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext {
+    compileSdkVersion = 25
+
+    buildToolsVersion = "25.0.2"
+
+    minSdkVersion = 15
+
+    targetSdkVersion = 25
+
+    supportVersion = "25.1.0"
+
+    retrofitVersion = "2.1.0"
+
+    okhttpVersion = "3.4.1"
+
+    leakcanaryVersion = "1.4-beta2"
+
+    daggerVersion = "2.6"
+}

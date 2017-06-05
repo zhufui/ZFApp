@@ -1,13 +1,15 @@
 apply plugin: 'com.android.application'
 
+def dep = rootProject.ext;
+
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion dep.compileSdkVersion
+    buildToolsVersion dep.buildToolsVersion
 
     defaultConfig {
         applicationId "com.example.encryptsample"
-        minSdkVersion 15
-        targetSdkVersion 25
+        minSdkVersion dep.minSdkVersion
+        targetSdkVersion dep.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
