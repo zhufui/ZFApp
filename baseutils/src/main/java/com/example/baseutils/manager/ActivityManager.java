@@ -9,20 +9,19 @@ import java.util.Stack;
  * Created by zf on 17-6-5.
  * activity管理
  * 调用方式,例如：
- * AppManager.getAppManager().addActivity(this);
+ * ActivityManager.getActivityManager().addActivity(this);
  */
-public class AppManager {
+public class ActivityManager {
     public static Stack<Activity> activityStack;
-    private static AppManager instance;
+    private static ActivityManager instance;
 
-    private AppManager() {
-    }
+    private ActivityManager() {}
 
-    public static AppManager getAppManager() {
+    public static ActivityManager getActivityManager() {
         if (instance == null) {
-            synchronized (AppManager.class) {
+            synchronized (ActivityManager.class) {
                 if (instance == null) {
-                    instance = new AppManager();
+                    instance = new ActivityManager();
                 }
             }
         }

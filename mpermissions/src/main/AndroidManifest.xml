@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.android.mpermissions">
 
+    <!--动态权限管理-->
+
     <!--敏感权限-->
     <!--android.permission-group.PHONE-->
     <uses-permission android:name="android.permission.CALL_PHONE" />

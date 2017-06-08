@@ -13,6 +13,7 @@ package com.example.baseutils;
  * 9.反转字符串
  * 10.转化为半角字符
  * 11.转化为全角字符
+ * 12.多个字符串相加
  */
 public class StringUtils {
     /**
@@ -171,5 +172,18 @@ public class StringUtils {
             }
         }
         return new String(chars);
+    }
+
+    /**
+     * 多个字符串相加
+     * @param arr
+     * @return
+     */
+    public static String append(CharSequence... arr) {
+        StringBuilder builder = new StringBuilder();
+        for (CharSequence s : arr) {
+            builder.append(s);
+        }
+        return builder.toString();
     }
 }
