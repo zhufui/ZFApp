@@ -17,6 +17,7 @@ import org.xmlpull.v1.XmlSerializer;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -46,6 +47,38 @@ public class PhoneUtils {
     public static String getIMEI() {
         TelephonyManager tm = (TelephonyManager) Utils.getContext().getSystemService(Context.TELEPHONY_SERVICE);
         return tm != null ? tm.getDeviceId() : null;
+    }
+
+    /**
+     * 当手机是双卡双待的手机时，获取对应的imei号
+     * @param context
+     * @param simCardIndex 0,1  0代表卡1,1代表卡2
+     * @return
+     */
+    public static String getIMEI(Context context, int simCardIndex) {
+        return getOperatorBySlotNow(context, "getImei", simCardIndex);
+    }
+
+    /**
+     * 通过反射获取IMEI
+     * @param context
+     * @param predictedMethodName
+     * @param slotID
+     * @return
+     */
+    public static String getOperatorBySlotNow(Context context, String predictedMethodName, int slotID) {
+        String inumeric = null;
+        TelephonyManager telephony = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        try {
+            @SuppressLint("PrivateApi") Method m = telephony.getClass().getDeclaredMethod(predictedMethodName, int.class);
+            Object ob_phone = m.invoke(telephony, slotID);
+            if (ob_phone != null) {
+                inumeric = ob_phone.toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return inumeric;
     }
 
     /**
