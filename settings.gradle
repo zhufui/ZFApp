@@ -1,1 +1,1 @@
-include ':app', ':easypermissions', ':logutils', ':materialdesignsamples', ':encryptsample', ':baseutils', ':mpermissions'
+include ':app', ':easypermissions', ':logutils', ':materialdesignsamples', ':encryptsample', ':baseutils', ':mpermissions', ':rxjava2sample', ':convertsample'

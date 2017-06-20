@@ -5,11 +5,13 @@
       <module fileurl="file://$PROJECT_DIR$/ZFApp.iml" filepath="$PROJECT_DIR$/ZFApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/baseutils/baseutils.iml" filepath="$PROJECT_DIR$/baseutils/baseutils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/convertsample/convertsample.iml" filepath="$PROJECT_DIR$/convertsample/convertsample.iml" />
       <module fileurl="file://$PROJECT_DIR$/easypermissions/easypermissions.iml" filepath="$PROJECT_DIR$/easypermissions/easypermissions.iml" />
       <module fileurl="file://$PROJECT_DIR$/encryptsample/encryptsample.iml" filepath="$PROJECT_DIR$/encryptsample/encryptsample.iml" />
       <module fileurl="file://$PROJECT_DIR$/logutils/logutils.iml" filepath="$PROJECT_DIR$/logutils/logutils.iml" />
       <module fileurl="file://$PROJECT_DIR$/materialdesignsamples/materialdesignsamples.iml" filepath="$PROJECT_DIR$/materialdesignsamples/materialdesignsamples.iml" />
       <module fileurl="file://$PROJECT_DIR$/mpermissions/mpermissions.iml" filepath="$PROJECT_DIR$/mpermissions/mpermissions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rxjava2sample/rxjava2sample.iml" filepath="$PROJECT_DIR$/rxjava2sample/rxjava2sample.iml" />
     </modules>
   </component>
 </project>
