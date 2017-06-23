@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ZFApp.iml" filepath="$PROJECT_DIR$/ZFApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/autoinputauthcode/autoinputauthcode.iml" filepath="$PROJECT_DIR$/autoinputauthcode/autoinputauthcode.iml" />
       <module fileurl="file://$PROJECT_DIR$/baseutils/baseutils.iml" filepath="$PROJECT_DIR$/baseutils/baseutils.iml" />
       <module fileurl="file://$PROJECT_DIR$/convertsample/convertsample.iml" filepath="$PROJECT_DIR$/convertsample/convertsample.iml" />
       <module fileurl="file://$PROJECT_DIR$/easypermissions/easypermissions.iml" filepath="$PROJECT_DIR$/easypermissions/easypermissions.iml" />
