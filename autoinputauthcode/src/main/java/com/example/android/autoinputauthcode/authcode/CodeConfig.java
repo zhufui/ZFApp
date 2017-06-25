@@ -1,13 +1,16 @@
 package com.example.android.autoinputauthcode.authcode;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by zf on 17-6-23.
  */
-public class CodeConfig {
+public class CodeConfig implements Parcelable {
     private int mCodeLen = 4;
-    private String mSmsBodyStart;
-    private String mSmsBodyContains;
-    private long mSmsFrom;
+    private String mSmsBodyStart;//短信内容以什么开头
+    private String mSmsBodyContains;//短信内容包含的
+    private long mSmsFrom;//发送短信的号码
     private int mSmsFromStart = 1069;
 
     public int getCodeLen() {
@@ -49,4 +52,41 @@ public class CodeConfig {
     public void setSmsFromStart(int smsFromStart) {
         mSmsFromStart = smsFromStart;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.mCodeLen);
+        dest.writeString(this.mSmsBodyStart);
+        dest.writeString(this.mSmsBodyContains);
+        dest.writeLong(this.mSmsFrom);
+        dest.writeInt(this.mSmsFromStart);
+    }
+
+    public CodeConfig() {
+    }
+
+    protected CodeConfig(Parcel in) {
+        this.mCodeLen = in.readInt();
+        this.mSmsBodyStart = in.readString();
+        this.mSmsBodyContains = in.readString();
+        this.mSmsFrom = in.readLong();
+        this.mSmsFromStart = in.readInt();
+    }
+
+    public static final Parcelable.Creator<CodeConfig> CREATOR = new Parcelable.Creator<CodeConfig>() {
+        @Override
+        public CodeConfig createFromParcel(Parcel source) {
+            return new CodeConfig(source);
+        }
+
+        @Override
+        public CodeConfig[] newArray(int size) {
+            return new CodeConfig[size];
+        }
+    };
 }
