@@ -18,7 +18,6 @@ import android.os.RemoteException;
 import android.provider.Telephony;
 import android.support.annotation.Nullable;
 import android.telephony.SmsMessage;
-import android.text.TextUtils;
 import android.util.Log;
 
 import java.util.regex.Matcher;
@@ -163,15 +162,16 @@ public class ReadSmsService extends Service {
      * @return
      */
     private boolean checkSmsBody(String smsBody) {
-        if (!TextUtils.isEmpty(mCodeConfig.getSmsBodyStart()) && !TextUtils.isEmpty(mCodeConfig.getSmsBodyContains())) {
-            return smsBody.startsWith(mCodeConfig.getSmsBodyStart()) && smsBody.contains(mCodeConfig.getSmsBodyContains());
-        } else if (!TextUtils.isEmpty(mCodeConfig.getSmsBodyStart())) {
-            return smsBody.startsWith(mCodeConfig.getSmsBodyStart());
-        } else if (!TextUtils.isEmpty(mCodeConfig.getSmsBodyContains())) {
-            return smsBody.contains(mCodeConfig.getSmsBodyContains());
-        } else {
-            return true;
-        }
+        return true;
+//        if (!TextUtils.isEmpty(mCodeConfig.getSmsBodyStart()) && !TextUtils.isEmpty(mCodeConfig.getSmsBodyContains())) {
+//            return smsBody.startsWith(mCodeConfig.getSmsBodyStart()) && smsBody.contains(mCodeConfig.getSmsBodyContains());
+//        } else if (!TextUtils.isEmpty(mCodeConfig.getSmsBodyStart())) {
+//            return smsBody.startsWith(mCodeConfig.getSmsBodyStart());
+//        } else if (!TextUtils.isEmpty(mCodeConfig.getSmsBodyContains())) {
+//            return smsBody.contains(mCodeConfig.getSmsBodyContains());
+//        } else {
+//            return true;
+//        }
     }
 
     @Nullable
@@ -182,6 +182,7 @@ public class ReadSmsService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.e("AutoInputAuthCode", "onStartCommand");
         if (intent != null) {
             Bundle bundle = intent.getExtras();
             if (bundle == null) {
@@ -207,10 +208,11 @@ public class ReadSmsService extends Service {
      * @return
      */
     private boolean checkSmsSender(String smsSender) {
-        if (mCodeConfig.getSmsFrom() != 0) {
-            return smsSender.equals(String.valueOf(mCodeConfig.getSmsFrom()));
-        }
-        return smsSender.contains(String.valueOf(mCodeConfig.getSmsFromStart()));
+        return true;
+//        if (mCodeConfig.getSmsFrom() != 0) {
+//            return smsSender.equals(String.valueOf(mCodeConfig.getSmsFrom()));
+//        }
+//        return smsSender.contains(String.valueOf(mCodeConfig.getSmsFromStart()));
     }
 
     /**

@@ -7,9 +7,9 @@ import android.os.Parcelable;
  * Created by zf on 17-6-23.
  */
 public class CodeConfig implements Parcelable {
-    private int mCodeLen = 4;
+    private int mCodeLen = 6;//验证码长度
     private String mSmsBodyStart;//短信内容以什么开头
-    private String mSmsBodyContains;//短信内容包含的
+    private String mSmsBodyContains;//短信中包含的内容
     private long mSmsFrom;//发送短信的号码
     private int mSmsFromStart = 1069;
 

@@ -3,10 +3,27 @@
     package="com.example.android.autoinputauthcode">
 
     <!--
-    接收短信验证码，
+    接收短信验证码并自动填写
     1、通过广播接收
     2、通过ContentObserver监听短信
     -->
+
+    <!--android.permission-group.SMS-->
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_WAP_PUSH" />
+    <uses-permission android:name="android.permission.RECEIVE_MMS" />
+    <uses-permission android:name="android.permission.READ_CELL_BROADCASTS" />
+
+    <!--android.permission-group.PHONE-->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
+    <uses-permission android:name="android.permission.USE_SIP" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="com.android.voicemail.permission.ADD_VOICEMAIL" />
 
     <application
         android:allowBackup="true"
@@ -22,6 +39,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service android:name=".authcode.ReadSmsService" android:exported="true"/>
     </application>
 
 </manifest>

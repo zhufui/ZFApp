@@ -54,14 +54,6 @@ public class AuthCode {
                 return;
             }
 
-            if(authCodeTv != null && !authCodeTv.getText().toString().isEmpty()){
-                return;
-            }
-
-            if(authCodeEt != null && !authCodeEt.getText().toString().isEmpty()){
-                return;
-            }
-
             switch (msg.what) {
                 case ReadSmsService.OBSERVER_SMS_CODE_MSG:
                     if(authCodeTv != null){
