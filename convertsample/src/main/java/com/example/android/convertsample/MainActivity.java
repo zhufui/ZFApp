@@ -1,5 +1,6 @@
 package com.example.android.convertsample;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -11,6 +12,7 @@ import com.example.baseutils.Utils;
 
 public class MainActivity extends AppCompatActivity {
 
+    Context mContext;
     EditText px2dp_et;
     TextView px2dp_tv;
 
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Utils.init(this);
+        mContext = this;
         px2dp_et = (EditText) findViewById(R.id.px2dp_et);
         px2dp_tv = (TextView) findViewById(R.id.px2dp_tv);
         px2dp_et.addTextChangedListener(TextWatcherHelper.getTextWatcher(new ITextWatcher() {
@@ -52,7 +55,8 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                dp2px_tv.setText(String.valueOf(ConvertUtils.dp2px(Float.valueOf(charSequence.toString()))));
+                dp2px_tv.setText(String.valueOf(
+                        ConvertUtils.dp2px(mContext, Float.valueOf(charSequence.toString()))));
             }
         }));
 

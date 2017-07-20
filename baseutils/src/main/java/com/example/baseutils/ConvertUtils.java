@@ -1,6 +1,7 @@
 package com.example.baseutils;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -8,6 +9,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.util.TypedValue;
 import android.view.View;
 
 import java.io.ByteArrayInputStream;
@@ -649,5 +651,31 @@ public class ConvertUtils {
     public static int px2sp(float pxValue) {
         final float fontScale = Utils.getContext().getResources().getDisplayMetrics().scaledDensity;
         return (int) (pxValue / fontScale + 0.5f);
+    }
+
+    /***************系统的px转dp,sp的做法*****************/
+    /**
+     * sp转px
+     * @param context
+     * @param pxValue 它的单位是px
+     *
+     * TypedValue.applyDimension(int unit, float value, DisplayMetrics metrics)
+     * unit:第二个参数的单位
+     * value:数值
+     * metrics:密度
+     * 这个方法返回的结果都是px
+     */
+    public static float sp2px(Context context, float pxValue){
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, pxValue, context.getResources().getDisplayMetrics());
+    }
+
+    /**
+     * dp转px
+     * @param context
+     * @param pxValue
+     * @return
+     */
+    public static float dp2px(Context context, float pxValue){
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, pxValue, context.getResources().getDisplayMetrics());
     }
 }
