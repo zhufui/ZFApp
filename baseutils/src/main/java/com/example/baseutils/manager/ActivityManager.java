@@ -11,17 +11,17 @@ import java.util.Stack;
  * 调用方式,例如：
  * ActivityManager.getActivityManager().addActivity(this);
  */
-public class ActivityManager {
+public class ActivityHelper {
     public static Stack<Activity> activityStack;
-    private static ActivityManager instance;
+    private static ActivityHelper instance;
 
-    private ActivityManager() {}
+    private ActivityHelper() {}
 
-    public static ActivityManager getActivityManager() {
+    public static ActivityHelper getInstance() {
         if (instance == null) {
-            synchronized (ActivityManager.class) {
+            synchronized (ActivityHelper.class) {
                 if (instance == null) {
-                    instance = new ActivityManager();
+                    instance = new ActivityHelper();
                 }
             }
         }
@@ -58,9 +58,8 @@ public class ActivityManager {
      *
      * @param activity 当前activity对象
      */
-    public void finishActivity(Activity activity) {
+    private void finishActivity(Activity activity) {
         if (activity != null) {
-            activityStack.remove(activity);
             activity.finish();
             activity = null;
         }
@@ -78,14 +77,17 @@ public class ActivityManager {
     }
 
     /**
-     *
      * <p>描述:结束指定类名的Activity</p>
-     * @param cls    当前activity类对象
+     *
+     * @param cls 当前activity类对象
      */
     public void finishActivity(Class<?> cls) {
-        for (Activity activity : activityStack) {
-            if (activity.getClass().equals(cls)) {
-                finishActivity(activity);
+        Iterator it = activityStack.iterator();
+        while (it.hasNext()){
+            Activity act = (Activity) it.next();
+            if (act.getClass().equals(cls)) {
+                finishActivity(act);
+                it.remove();
             }
         }
     }
