@@ -1,21 +1,21 @@
-package com.example.baseutils.manager;
+package com.example.baseutils;
 
 import android.app.Activity;
 import android.content.Context;
 
+import java.util.Iterator;
 import java.util.Stack;
 
 /**
- * Created by zf on 17-6-5.
- * activity管理
- * 调用方式,例如：
- * ActivityManager.getActivityManager().addActivity(this);
+ * Created by zf on 17-7-20.
  */
+
 public class ActivityHelper {
     public static Stack<Activity> activityStack;
     private static ActivityHelper instance;
 
-    private ActivityHelper() {}
+    private ActivityHelper() {
+    }
 
     public static ActivityHelper getInstance() {
         if (instance == null) {
@@ -93,11 +93,10 @@ public class ActivityHelper {
     }
 
     /**
-     *
      * <p>描述:结束所有Activity</p>
      */
     public void finishAllActivity() {
-        if(activityStack==null)return;
+        if (activityStack == null) return;
         for (int i = 0, size = activityStack.size(); i < size; i++) {
             if (null != activityStack.get(i)) {
                 activityStack.get(i).finish();
@@ -107,17 +106,16 @@ public class ActivityHelper {
     }
 
     /**
-     *
      * <p>描述:退出应用程序</p>
-     * @param context    上下文环境context
+     *
+     * @param context 上下文环境context
      */
     public void appExit(Context context) {
         try {
             finishAllActivity();
             android.os.Process.killProcess(android.os.Process.myPid());
             System.exit(0);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
         }
     }
 }
