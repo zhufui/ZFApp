@@ -139,4 +139,16 @@ public class AuthCode {
         mAuthcodeIntent.putExtra(ReadSmsService.EXTRAS_COFIG, mCodeConfig);
         mContext.startService(mAuthcodeIntent);
     }
+
+    /**
+     * 关闭短信验证码获取服务
+     * 在onDestory中调用
+     */
+    private void stopReadSmsService(){
+        if(mContext == null){
+            return;
+        }
+        Intent mAuthcodeIntent = new Intent(mContext, ReadSmsService.class);
+        mContext.stopService(mAuthcodeIntent);
+    }
 }
