@@ -35,7 +35,7 @@ public class myClass {
             file.mkdir();
         }
 
-        String dimenPath = parentDir + File.separator + "dimen.xml";
+        String dimenPath = parentDir + File.separator + "dimens.xml";
         file = new File(dimenPath);
         if(file.exists()){
             file.delete();

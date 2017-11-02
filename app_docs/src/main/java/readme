@@ -2,3 +2,19 @@
 app_docs中的myclass中是对屏幕适配自动生成的文件程序
 
 
+convertsample:
+这个模块中是dp和sp和px的转换，还有根据不同分辨率分的dimens文件
+
+
+
+
+
+
+
+
+
+
+
+
+
+
