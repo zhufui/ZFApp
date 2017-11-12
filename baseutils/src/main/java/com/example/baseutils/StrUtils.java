@@ -1,5 +1,8 @@
 package com.example.baseutils;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Created by zf on 17-2-22.
  * 1.判断字符串是否为null或长度为0
@@ -15,7 +18,7 @@ package com.example.baseutils;
  * 11.转化为全角字符
  * 12.多个字符串相加
  */
-public class StringUtils {
+public class StrUtils {
     /**
      * 判断字符串是否为null或长度为0
      *
@@ -185,5 +188,68 @@ public class StringUtils {
             builder.append(s);
         }
         return builder.toString();
+    }
+
+    /**
+     * 描述：是否是邮箱.
+     *
+     * @param str 指定的字符串
+     * @return 是否是邮箱:是为true，否则false
+     */
+    public static Boolean isEmail(String str) {
+        Boolean isEmail = false;
+        String expr = "^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";
+        if (str.matches(expr)) {
+            isEmail = true;
+        }
+        return isEmail;
+    }
+
+    /**
+     * 描述：是否只是数字.
+     *
+     * @param str 指定的字符串
+     * @return 是否只是数字:是为true，否则false
+     */
+    public static Boolean isNumber(String str) {
+        Boolean isNumber = false;
+        String expr = "^[0-9]+$";
+        if (str.matches(expr)) {
+            isNumber = true;
+        }
+        return isNumber;
+    }
+
+    /**
+     * 描述：手机号格式验证.
+     *
+     * @param str 指定的手机号码字符串
+     * @return 是否为手机号码格式:是为true，否则false
+     */
+    public static Boolean isMobileNo(String str) {
+        Boolean isMobileNo = false;
+        try {
+            Pattern p = Pattern.compile("^((13[0-9])|(15[^4,\\D])|(18[0,5-9])|(17[0,5-9]))\\d{8}$");
+            Matcher m = p.matcher(str);
+            isMobileNo = m.matches();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return isMobileNo;
+    }
+
+    /**
+     * 描述：是否只是字母和数字.
+     *
+     * @param str 指定的字符串
+     * @return 是否只是字母和数字:是为true，否则false
+     */
+    public static Boolean isNumberLetter(String str) {
+        Boolean isNoLetter = false;
+        String expr = "^[A-Za-z0-9]+$";
+        if (str.matches(expr)) {
+            isNoLetter = true;
+        }
+        return isNoLetter;
     }
 }
