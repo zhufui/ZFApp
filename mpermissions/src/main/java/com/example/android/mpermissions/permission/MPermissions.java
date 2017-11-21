@@ -11,6 +11,13 @@ import android.support.v4.content.ContextCompat;
  * Created by zf on 17-5-26.
  */
 public class MPermissions {
+    /**
+     * 请求权限
+     * @param activity
+     * @param requestCode
+     * @param pc
+     * @param permissions
+     */
     public static void requestPermissions(Activity activity, int requestCode, PermissionCallback pc, String[] permissions) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             return;
@@ -31,6 +38,12 @@ public class MPermissions {
         }
     }
 
+    /**
+     * 检查权限是否通过
+     * @param context
+     * @param permission
+     * @return
+     */
     private static boolean checkPermission(Context context, String permission) {
         if (ContextCompat.checkSelfPermission(context, permission) == PackageManager.PERMISSION_GRANTED) {
             return true;
@@ -38,6 +51,30 @@ public class MPermissions {
         return false;
     }
 
+    /**
+     * 检查一组权限是否通过
+     * @param context
+     * @param permissionArrays
+     * @return
+     */
+    public static boolean checkPermission(Context context, String[]... permissionArrays){
+        for (String[] permissionArray : permissionArrays) {
+            for (String permission : permissionArray) {
+                if(!checkPermission(context, permission)){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 权限的回调
+     * @param requestCode
+     * @param grantResults
+     * @param pc
+     * @param requestCodes
+     */
     public static void onRequestPermissionsResult(int requestCode, int[] grantResults,
                                                   PermissionCallback pc,int... requestCodes){
         for (int i = 0; i < requestCodes.length; i++) {
