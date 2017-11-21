@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Stack;
 
 /**
@@ -11,11 +13,10 @@ import java.util.Stack;
  */
 
 public class ActivityHelper {
-    public static Stack<Activity> activityStack;
+    private List<Activity> activityList;
     private static ActivityHelper instance;
 
-    private ActivityHelper() {
-    }
+    private ActivityHelper() {}
 
     public static ActivityHelper getInstance() {
         if (instance == null) {
@@ -28,91 +29,56 @@ public class ActivityHelper {
         return instance;
     }
 
+    /**
+     * 往list中添加Acvitivity
+     * @param activity
+     */
     public void addActivity(Activity activity) {
-        if (activityStack == null) {
-            activityStack = new Stack<Activity>();
+        if(null == activityList){
+            activityList = new LinkedList<>();
         }
-        activityStack.add(activity);
+        activityList.add(activity);
     }
 
     /**
-     * <p>描述:获取当前Activity（堆栈中最后一个压入的）</p>
-     *
-     * @return 当前activity对象
+     * 移除list中的Activity
+     * @param activity
      */
-    public Activity currentActivity() {
-        Activity activity = activityStack.lastElement();
-        return activity;
-    }
-
-    /**
-     * <p>描述:结束当前Activity（堆栈中最后一个压入的）)</p>
-     */
-    public void finishActivity() {
-        Activity activity = activityStack.lastElement();
-        finishActivity(activity);
-    }
-
-    /**
-     * <p>描述:结束指定的Activity</p>
-     *
-     * @param activity 当前activity对象
-     */
-    private void finishActivity(Activity activity) {
-        if (activity != null) {
-            activity.finish();
-            activity = null;
+    public void removeActivity(Activity activity){
+        if(null == activity){
+            throw new IllegalArgumentException("Activity not null");
         }
-    }
 
-    /**
-     * <p>描述:移除当前statck中的Activity</p>
-     *
-     * @param activity 当前activity对象
-     */
-    public void removeActivity(Activity activity) {
-        if (activity != null) {
-            activityStack.remove(activity);
+        if(null == activityList){
+            return;
         }
+
+        activityList.remove(activity);
     }
 
     /**
-     * <p>描述:结束指定类名的Activity</p>
-     *
-     * @param cls 当前activity类对象
+     * 移除所有Activity
      */
-    public void finishActivity(Class<?> cls) {
-        Iterator it = activityStack.iterator();
-        while (it.hasNext()){
-            Activity act = (Activity) it.next();
-            if (act.getClass().equals(cls)) {
-                finishActivity(act);
-                it.remove();
+    public void removeAll(){
+        if(null == activityList){
+            return;
+        }
+
+        for(int i=0,size=activityList.size();i<size;i++){
+            Activity activity = activityList.get(i);
+            if(activity != null){
+                activity.finish();
             }
         }
     }
 
     /**
-     * <p>描述:结束所有Activity</p>
-     */
-    public void finishAllActivity() {
-        if (activityStack == null) return;
-        for (int i = 0, size = activityStack.size(); i < size; i++) {
-            if (null != activityStack.get(i)) {
-                activityStack.get(i).finish();
-            }
-        }
-        activityStack.clear();
-    }
-
-    /**
-     * <p>描述:退出应用程序</p>
-     *
+     * 退出应用程序
      * @param context 上下文环境context
      */
     public void appExit(Context context) {
         try {
-            finishAllActivity();
+            removeAll();
             android.os.Process.killProcess(android.os.Process.myPid());
             System.exit(0);
         } catch (Exception e) {

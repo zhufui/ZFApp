@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.util.Log;
 
 import java.util.HashSet;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.Set;
  * Created by zf on 17-7-24.
  */
 
-public final class ServiceUtils {
+public final class ServiceHelper {
     /**
      * 获取所有运行的服务
      *
@@ -33,24 +34,10 @@ public final class ServiceUtils {
 
     /**
      * 启动服务
-     *
-     * @param className 完整包名的服务类名
-     */
-    public static void startService(final String className) {
-        try {
-            startService(className);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * 启动服务
-     *
      * @param cls 服务类
      */
     public static void startService(Context context, final Class<?> cls) {
-        startService(context, cls);
+        startService(context, cls, null);
     }
     
     public static void startService(Context context, Class<?> cls, Bundle bundle) {
@@ -64,27 +51,15 @@ public final class ServiceUtils {
     /**
      * 停止服务
      *
-     * @param className 完整包名的服务类名
-     * @return {@code true}: 停止成功<br>{@code false}: 停止失败
-     */
-    public static boolean stopService(final String className) {
-        try {
-            return stopService(className);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    /**
-     * 停止服务
-     *
      * @param cls 服务类
      * @return {@code true}: 停止成功<br>{@code false}: 停止失败
      */
-    public static boolean stopService(Context context, final Class<?> cls) {
+    public static void stopService(Context context, final Class<?> cls) {
         Intent intent = new Intent(context, cls);
-        return context.stopService(intent);
+        boolean result = context.stopService(intent);
+        if(!result){
+            Log.e("ServiceHelper", "stopService fail");
+        }
     }
 
     /**
